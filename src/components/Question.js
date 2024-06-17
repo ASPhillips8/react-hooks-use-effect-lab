@@ -5,10 +5,20 @@ function Question({ question, onAnswered }) {
 
   // add useEffect code
   useEffect(() => {
-    console.log("useEffect called")
-  })
-  const timerId = setTimeout(() => {
-    setTimeRemaining(timeRemaining => timeRemaining -1 )}, 1000)
+    if (timeRemaining === 0) {
+      setTimeRemaining(10)
+
+    }
+    const intervalId = setTimeout(() => {
+      console.log("running")
+      setTimeRemaining(timeRemaining => timeRemaining -1 )}, 1000)
+
+    return function() {
+      clearInterval(intervalId)
+    }
+
+  }, [timeRemaining])
+
 
 
 
