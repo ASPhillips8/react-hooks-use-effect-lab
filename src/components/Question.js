@@ -12,9 +12,9 @@ function Question({ question, onAnswered }) {
     const intervalId = setTimeout(() => {
       setTimeRemaining(timeRemaining => timeRemaining -1 )}, 1000)
 
-    // return function() {
-    //   clearInterval(intervalId)
-    // }
+    return function() {
+      clearInterval(intervalId)
+    }
 
   }, [timeRemaining, onAnswered])
 
